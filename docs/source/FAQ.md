@@ -37,15 +37,16 @@ python preprocess.py \
 -train_tgt data/train.tgt.txt \
 -valid_src data/valid.src.txt \
 -valid_tgt data/valid.tgt.txt \
--save_data data/data
+-save_data data/demo
 ```
 
 3) prepare embeddings:
 
 ```
-./tools/embeddings_to_torch.py -emb_file "glove_dir/glove.6B.100d.txt" \
--dict_file "data/data.vocab.pt" \
--output_file "data/embeddings"
+./tools/embeddings_to_torch.py -emb_file_enc "glove_dir/glove.6B.100d.txt" \
+-emb_file_dec "glove_dir/glove.6B.100d.txt" \
+-dict_file "data/demo.vocab.pt" \
+-output_file "data/demo_embeddings"
 ```
 
 4) train using pre-trained embeddings:
@@ -56,9 +57,9 @@ python train.py -save_model data/model \
 -layers 2 \
 -rnn_size 200 \
 -word_vec_size 100 \
--pre_word_vecs_enc "data/embeddings.enc.pt" \
--pre_word_vecs_dec "data/embeddings.dec.pt" \
-        -data data/data
+-pre_word_vecs_enc "data/demo_embeddings.enc.pt" \
+-pre_word_vecs_dec "data/demo_embeddings.dec.pt" \
+        -data data/demo
 ```
 
 
