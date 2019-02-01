@@ -9,7 +9,7 @@ the script is a slightly modified version of ylhsiehs one2.
 Usage:
 
 ```
-embeddings_to_torch.py [-h] -emb_file EMB_FILE -output_file OUTPUT_FILE -dict_file DICT_FILE [-verbose]
+embeddings_to_torch.py [-h] -emb_file_enc EMB_FILE -emb_file_dec EMB_FILE -output_file OUTPUT_FILE -dict_file DICT_FILE [-verbose]
 
 emb_file: GloVe like embedding file i.e. CSV [word] [dim1] ... [dim_d]
 
